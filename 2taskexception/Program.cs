@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace _2taskexception
 {
@@ -33,8 +34,9 @@ namespace _2taskexception
                     }
                 }
                 catch (Exception ex)
-                { 
-                
+                {
+                    Console.WriteLine($"File {file} doesn't have an image but should have. {ex.Message}");
+                    MessageBox.Show($"File {file} doesn't have an image but should have.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             }
         }
@@ -44,6 +46,8 @@ namespace _2taskexception
     {
         static void Main(string[] args)
         {
+            Files.ReadFiles();
         }
+
     }
 }
